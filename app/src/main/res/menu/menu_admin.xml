@@ -33,6 +33,10 @@
             android:id="@+id/menu_atencion"
             android:title="@string/menu_atencion" />
 
+        <item
+            android:id="@+id/Salir"
+            android:title="@string/Salir" />
+
     </group>
 
 </menu>

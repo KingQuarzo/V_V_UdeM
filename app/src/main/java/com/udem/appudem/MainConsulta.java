@@ -19,7 +19,7 @@ public class MainConsulta extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_consultas);
+        setContentView(R.layout.menu_consultas_layout);
 
         Toolbar toolbar = findViewById(R.id.toobarMain);
         setSupportActionBar(toolbar);
@@ -48,6 +48,8 @@ public class MainConsulta extends AppCompatActivity implements NavigationView.On
         if (itemId == R.id.menu_consultas){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main,
                     new ConsultaFragment()).commit();
+        }else if (itemId == R.id.Salir){
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
