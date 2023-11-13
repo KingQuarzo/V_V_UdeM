@@ -1,13 +1,24 @@
 package com.udem.appudem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginCliente extends AppCompatActivity {
 
@@ -15,10 +26,28 @@ public class LoginCliente extends AppCompatActivity {
     EditText password;
     Button acceder;
 
+    Button registrarse;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        construir();
+
+        acceder.setOnClickListener(view -> {
+            logearUsuario(identificaicon.getText().toString(), password.getText().toString());
+        });
+
+        registrarse.setOnClickListener(view -> {
+            registrarse();
+        });
+    }
+
+    private void construir(){
         setContentView(R.layout.login_cliente);
 
         ActionBar actionBar = getSupportActionBar();
@@ -31,14 +60,57 @@ public class LoginCliente extends AppCompatActivity {
         identificaicon = findViewById(R.id.txt_identificacion);
         password = findViewById(R.id.txt_password);
         acceder = findViewById(R.id.btn_acceder);
+        registrarse = findViewById(R.id.Registrar);
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        acceder.setOnClickListener(view -> {
-            if (identificaicon.getText().toString().equals("0000") && password.getText().toString().equals("0000")) {
-                Toast.makeText(LoginCliente.this, "SUCCESSFULL!", Toast.LENGTH_SHORT).show();
-                startActivities(new Intent[]{new Intent(LoginCliente.this, MainConsulta.class)});
-            } else
-                Toast.makeText(LoginCliente.this, "USERNAME OR PASSWORD IS WRONG", Toast.LENGTH_SHORT).show();
+        progressDialog = new ProgressDialog(LoginCliente.this);
+        progressDialog.setMessage("Ingresando");
+        progressDialog.setCancelable(false);
 
-        });
+    }
+
+    private void registrarse(){
+        Intent intent = new Intent(LoginCliente.this, RegistroCliente.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void logearUsuario(String id, String password) {
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        firebaseAuth.signInWithEmailAndPassword(id+"@gmail.com", password)
+                .addOnCompleteListener(LoginCliente.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            progressDialog.dismiss();
+                            user = firebaseAuth.getCurrentUser();
+                            assert user != null;
+                            Toast.makeText(LoginCliente.this, "SUCCESSFULL!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginCliente.this, MainConsulta.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        usuarioInvalido();
+                    }
+                });
+    }
+
+    private void usuarioInvalido() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginCliente.this);
+        builder.setCancelable(false);
+        builder.setTitle("Ha ocurrido un error");
+        builder.setMessage("Verifique los datos ingresados")
+                .setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
     }
 }

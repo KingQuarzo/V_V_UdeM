@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-        <activity android:name=".MainConsulta"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+        <activity
+            android:name=".MainConsulta"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".RegistroCliente"
+            android:exported="true"/>
         <activity
             android:name=".LoginCliente"
             android:exported="true">
