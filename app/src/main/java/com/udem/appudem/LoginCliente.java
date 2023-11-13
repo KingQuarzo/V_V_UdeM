@@ -32,6 +32,7 @@ public class LoginCliente extends AppCompatActivity {
     FirebaseUser user;
     ProgressDialog progressDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,7 +12,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.udem.appudem.fragmentos.ConsultaFragment;
+import com.udem.appudem.fragmentos.PerfilUsuario;
+import com.udem.appudem.fragmentos.ProductosFragment;
 import com.udem.appudem.fragmentos.TransferenciaFragment;
 
 public class MainConsulta extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,7 +41,7 @@ public class MainConsulta extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main,
-                    new ConsultaFragment()).commit();
+                    new ProductosFragment()).commit();
             navigationView.setCheckedItem(R.id.menu_consultas);
         }
     }
@@ -52,7 +53,10 @@ public class MainConsulta extends AppCompatActivity implements NavigationView.On
 
         if (itemId == R.id.menu_consultas) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main,
-                    new ConsultaFragment()).commit();
+                    new ProductosFragment()).commit();
+        } else if (itemId == R.id.Informacion) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main,
+                    new PerfilUsuario()).commit();
         } else if (itemId == R.id.menu_transferencias) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main,
                     new TransferenciaFragment()).commit();

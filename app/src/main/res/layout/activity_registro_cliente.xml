@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -116,18 +116,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/IdentificacionAdelante"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/IdentificacionAdelante" />
-
-        <Button
-            android:id="@+id/IdentificacionAtras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/IdentificacionAtras" />
-
-        <Button
             android:id="@+id/Registrarse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,4 +124,4 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-</RelativeLayout>
+</ScrollView>
