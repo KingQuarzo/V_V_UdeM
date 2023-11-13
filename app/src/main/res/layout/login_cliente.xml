@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     android:padding="10dp"
     tools:context=".LoginCliente">
@@ -13,6 +14,13 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="15dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/escudo_udem"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -36,7 +44,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
 
             <EditText
                 android:id="@+id/txt_password"
@@ -53,6 +62,11 @@
             android:layout_height="wrap_content"
             android:text="@string/Acceder" />
 
+        <Button
+            android:id="@+id/Registrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Registrar" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

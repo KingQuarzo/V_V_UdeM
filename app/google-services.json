@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "552916912131",
+    "project_id": "kyrosappudem2023",
+    "storage_bucket": "kyrosappudem2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552916912131:android:4f917ec42d7cd037ada636",
+        "android_client_info": {
+          "package_name": "com.udem.appudem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF1WfgyYV99Mqvvnxt-hnUrqTyHZREVRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
