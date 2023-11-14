@@ -7,7 +7,6 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -54,9 +53,6 @@ public class PerfilUsuario extends Fragment {
 
     ImageView identificacionAdelante;
     ImageView identificacionAtras;
-    Button actualizarContrasenia;
-    Button actualizarDatos;
-
     FirebaseAuth auth;
     FirebaseUser user;
     DatabaseReference BASE_DE_DATOS_REGISTRO;
@@ -163,8 +159,6 @@ public class PerfilUsuario extends Fragment {
         identificacionAdelante = view.findViewById(R.id.EDIT_DOCUMENTO_ADELANTE);
         identificacionAtras = view.findViewById(R.id.EDIT_DOCUMENTO_ATRAS);
 
-        actualizarDatos = view.findViewById(R.id.ACTUALIZAR_DATOS);
-        actualizarContrasenia = view.findViewById(R.id.ACTUALIZAR_PASSWORD);
     }
 
     private void tomarFoto() {
