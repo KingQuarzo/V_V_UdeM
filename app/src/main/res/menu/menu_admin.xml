@@ -18,13 +18,8 @@
             android:title="@string/menu_transferencias" />
 
         <item
-            android:id="@+id/menu_avances"
-            android:title="@string/menu_avances" />
-
-        <item
             android:id="@+id/Salir"
             android:title="@string/Salir" />
-
     </group>
 
 </menu>

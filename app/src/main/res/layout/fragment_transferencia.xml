@@ -9,15 +9,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="start"
+
         android:orientation="vertical"
         android:padding="40dp">
 
-        <TextView
-            android:id="@+id/btn_acceder"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@string/txt_tipo_cuenta" />
+            android:hint="Cuenta de origen"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/tipoCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scrollbarSize="30dp"
+            android:layout_marginBottom="10dp"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cuenta destino"
+            android:inputType="number" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Monto a transferir"
+            android:inputType="number" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Identificacion"
+            android:inputType="number" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transferir" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

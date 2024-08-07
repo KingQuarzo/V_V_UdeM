@@ -62,6 +62,7 @@ public class MainConsulta extends AppCompatActivity implements NavigationView.On
                     new TransferenciaFragment()).commit();
         } else if (itemId == R.id.Salir) {
             Toast.makeText(this,"Cerraste sesión",Toast.LENGTH_SHORT).show();
+            finishAffinity();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
