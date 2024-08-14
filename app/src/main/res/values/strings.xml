@@ -4,19 +4,68 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="Identificacion">ID</string>
+    <string name="Identificacion">Identificacion</string>
+    <string name="tipoID">Tipo Identificacion</string>
     <string name="Password">Password</string>
+    <string name="Correo">Correo</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="IdentificacionAdelante">Identificación Adelante</string>
+    <string name="IdentificacionAtras">Identificación Atras</string>
+    <string name="FechaNacimiento">Fecha de Nacimiento</string>
+
+    <string name="RegistroUsuario">Registro de Usuario</string>
     <string name="Acceder">Acceder</string>
+    <string name="Registrar">Registrarse</string>
+    <string name="Registrarse">Registrarse</string>
     <string name="Salir">Salir</string>
     <string name="Admin">Administrador</string>
 
+    <string name="txt_tipo_cuenta">Tipo de cuenta</string>
+    <string name="num_cuenta">****-000</string>
+    <string name="ConsultarHistorial">Consultar Historial</string>
 
-    <string name="menu_consultas">Consultas</string>
-    <string name="menu_pagos">Pagos</string>
-    <string name="menu_recargas">Recargas</string>
+    <string name="Informacion">Informacion de usuario</string>
+    <string name="menu_productos">Productos</string>
     <string name="menu_transferencias">Transferencias</string>
     <string name="menu_avances">Avances</string>
-    <string name="menu_retiros">Retiros sin tarjeta</string>
-    <string name="menu_atencion">Atencion al cliente</string>
+
+    <string name="toobarMain">toobarMain</string>
+
+    <!-- Datos Perfil -->
+    <string name="TXT_MI_PERFIL">Mi perfil
+    </string>
+    <string name="TXT_INFORMACION_PERFIL">Informacion de perfil</string>
+    <string name="TXT_ID">Identificacion</string>
+    <string name="TXT_TIPO_ID">Tipo Identificacion</string>
+    <string name="TXT_NOMBRES">Nombres</string>
+    <string name="TXT_APELLIDOS">Apellidos</string>
+    <string name="TXT_CORREO">Correo</string>
+    <string name="TXT_PASSWORD">Contraseña</string>
+    <string name="TXT_FECHA_NACIMIENTO">Fecha de Nacimiento</string>
+    <string name="IMG_DOCUMENTO_ADELANTE">Parte adelante de documento</string>
+    <string name="IMG_DOCUMENTO_ATRAS">Parte atras de documento</string>
+
+    <string name="EDIT_ID">--</string>
+    <string name="EDIT_TIPO_ID">--</string>
+    <string name="EDIT_NOMBRES">--</string>
+    <string name="EDIT_APELLIDOS">--</string>
+    <string name="EDIT_CORREO">--</string>
+    <string name="EDIT_PASSWORD">--</string>
+    <string name="EDIT_FECHA_NACIMIENTO">--</string>
+    <string name="EDIT_DOCUMENTO_ADELANTE">Parte adelante de documento</string>
+    <string name="EDIT_DOCUMENTO_ATRAS">Parte atras de documento</string>
+
+    <string name="ACTUALIZAR_DATOS">Actualizar datos</string>
+    <string name="ACTUALIZAR_PASSWORD">Actualizar contraseña</string>
+
+    <string-array name="tipoCuenta">
+
+        <item>Ahorros</item>
+
+        <item>Corriente</item>
+
+    </string-array>
+
 
 </resources>

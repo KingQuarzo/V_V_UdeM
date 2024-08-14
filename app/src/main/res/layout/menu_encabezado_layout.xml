@@ -8,12 +8,16 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"/>
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:src="@drawable/escudo_udem"/>
 
     <TextView
-        android:text="@string/Admin"
-        android:textSize="25sp"
+        android:text="Menu principal"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
