@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CoopUdeM</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="Identificacion">ID</string>
+    <string name="Password">Password</string>
+    <string name="Acceder">Acceder</string>
+    <string name="Salir">Salir</string>
+    <string name="Admin">Administrador</string>
+
+
+    <string name="menu_consultas">Consultas</string>
+    <string name="menu_pagos">Pagos</string>
+    <string name="menu_recargas">Recargas</string>
+    <string name="menu_transferencias">Transferencias</string>
+    <string name="menu_avances">Avances</string>
+    <string name="menu_retiros">Retiros sin tarjeta</string>
+    <string name="menu_atencion">Atencion al cliente</string>
+
+</resources>

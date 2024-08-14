@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_consultas"
+            android:title="@string/menu_consultas" />
+
+        <item
+            android:id="@+id/menu_pagos"
+            android:title="@string/menu_pagos" />
+
+        <item
+            android:id="@+id/menu_recargas"
+            android:title="@string/menu_recargas" />
+
+        <item
+            android:id="@+id/menu_transferencias"
+            android:title="@string/menu_transferencias" />
+
+        <item
+            android:id="@+id/menu_avances"
+            android:title="@string/menu_avances" />
+
+        <item
+            android:id="@+id/menu_retiros"
+            android:title="@string/menu_retiros" />
+
+        <item
+            android:id="@+id/menu_atencion"
+            android:title="@string/menu_atencion" />
+
+        <item
+            android:id="@+id/Salir"
+            android:title="@string/Salir" />
+
+    </group>
+
+</menu>
