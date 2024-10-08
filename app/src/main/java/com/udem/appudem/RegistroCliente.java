@@ -5,13 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,11 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 public class RegistroCliente extends AppCompatActivity {
 
@@ -43,13 +36,8 @@ public class RegistroCliente extends AppCompatActivity {
 
     Button registrarse;
     FirebaseAuth auth;
-    FirebaseUser user;
     ProgressDialog progressDialog;
     HashMap<Object, Object> usuario = new HashMap<>();
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +45,15 @@ public class RegistroCliente extends AppCompatActivity {
         construir();
 
         registrarse.setOnClickListener(view -> {
-            registrarCliente(identificacion.getText().toString() + "@gmail.com", password.getText().toString());
+            if (esValido()) {
+                registrarCliente(identificacion.getText().toString() + "@gmail.com", password.getText().toString());
+            } else {
+                Toast.makeText(RegistroCliente.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
-    private void construir() {
+    public void construir() {
         setContentView(R.layout.activity_registro_cliente);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -81,12 +73,21 @@ public class RegistroCliente extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(RegistroCliente.this);
-        progressDialog.setMessage("Registrando, espere por favor");
         progressDialog.setCancelable(false);
     }
 
-    private void registrarCliente(String ident, String pass) {
+    public boolean esValido() {
+        // Verificar que los campos no estén vacíos
+        return !tipoIdentificacion.getText().toString().trim().isEmpty() &&
+                !identificacion.getText().toString().trim().isEmpty() &&
+                !correo.getText().toString().trim().isEmpty() &&
+                !nombre.getText().toString().trim().isEmpty() &&
+                !apellido.getText().toString().trim().isEmpty() &&
+                !password.getText().toString().trim().isEmpty() &&
+                !fechaNacimiento.getText().toString().trim().isEmpty();
+    }
 
+    public void registrarCliente(String ident, String pass) {
         progressDialog.show();
         auth.createUserWithEmailAndPassword(ident, pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -103,7 +104,6 @@ public class RegistroCliente extends AppCompatActivity {
                             String tid = tipoIdentificacion.getText().toString();
                             String nom = nombre.getText().toString();
                             String ape = apellido.getText().toString();
-                            String pas = password.getText().toString();
                             String nacdate = fechaNacimiento.getText().toString();
 
                             usuario.put("uid", uid);
@@ -112,12 +112,11 @@ public class RegistroCliente extends AppCompatActivity {
                             usuario.put("correo", mail);
                             usuario.put("nombre", nom);
                             usuario.put("apellido", ape);
-                            usuario.put("password", pas);
                             usuario.put("fechaNacimiento", nacdate);
                             usuario.put("documentoAdelante", "");
                             usuario.put("documentosAtras", "");
-                            usuario.put("saldoCredito",0);
-                            usuario.put("saldoAhorro",0);
+                            usuario.put("saldoCredito", 0);
+                            usuario.put("saldoAhorro", 0);
 
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference("BASE DE DATOS REGISTRO");
@@ -139,10 +138,4 @@ public class RegistroCliente extends AppCompatActivity {
                     }
                 });
     }
-
-
-
-
-
-
 }
