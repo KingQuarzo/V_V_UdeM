@@ -25,12 +25,13 @@ public class LoginCliente extends AppCompatActivity {
     EditText identificaicon;
     EditText password;
     Button acceder;
-
     Button registrarse;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     ProgressDialog progressDialog;
+    Intent intent;
+    AlertDialog.Builder builder;
 
 
     @Override
@@ -70,13 +71,13 @@ public class LoginCliente extends AppCompatActivity {
 
     }
 
-    private void registrarse(){
-        Intent intent = new Intent(LoginCliente.this, RegistroCliente.class);
+    public void registrarse(){
+        intent = new Intent(LoginCliente.this, RegistroCliente.class);
         startActivity(intent);
         finish();
     }
 
-    private void logearUsuario(String id, String password) {
+    protected void logearUsuario(String id, String password) {
         progressDialog.show();
         progressDialog.setCancelable(false);
         firebaseAuth.signInWithEmailAndPassword(id+"@gmail.com", password)
@@ -86,9 +87,10 @@ public class LoginCliente extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             progressDialog.dismiss();
                             user = firebaseAuth.getCurrentUser();
-                            assert user != null;
+                            //user=null;
+                            assert user != null : "Fail to get user";
                             Toast.makeText(LoginCliente.this, "SUCCESSFULL!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginCliente.this, MainConsulta.class);
+                            intent = new Intent(LoginCliente.this, MainConsulta.class);
                             startActivity(intent);
                             finish();
                         }
@@ -103,7 +105,7 @@ public class LoginCliente extends AppCompatActivity {
     }
 
     private void usuarioInvalido() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginCliente.this);
+        builder = new AlertDialog.Builder(LoginCliente.this);
         builder.setCancelable(false);
         builder.setTitle("Ha ocurrido un error");
         builder.setMessage("Verifique los datos ingresados")
