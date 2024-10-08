@@ -42,7 +42,6 @@ import java.util.HashMap;
 
 public class PerfilUsuario extends Fragment {
 
-
     TextView tipoIdentificacion;
     TextView identificacion;
     TextView correo;
