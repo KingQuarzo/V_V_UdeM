@@ -5,11 +5,17 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+<<<<<<< HEAD
+      <SelectionState runConfigName="RegistroCliente">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+=======
 
       <SelectionState runConfigName="All Tests">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
 
+>>>>>>> a08059c9a4c4f989e98748914c74ebbd96e0cfb6
     </selectionStates>
   </component>
 </project>
