@@ -43,24 +43,24 @@ import java.util.HashMap;
 public class PerfilUsuario extends Fragment {
 
 
-    TextView tipoIdentificacion;
-    TextView identificacion;
-    TextView correo;
-    TextView nombre;
-    TextView apellido;
-    TextView password;
-    TextView fechaNacimiento;
+    public TextView tipoIdentificacion;
+    public TextView identificacion;
+    public TextView correo;
+    public TextView nombre;
+    public TextView apellido;
+    public TextView password;
+    public TextView fechaNacimiento;
 
-    ImageView identificacionAdelante;
-    ImageView identificacionAtras;
-    FirebaseAuth auth;
-    FirebaseUser user;
-    DatabaseReference BASE_DE_DATOS_REGISTRO;
+    public ImageView identificacionAdelante;
+    public ImageView identificacionAtras;
+    public FirebaseAuth auth;
+    public FirebaseUser user;
+    public DatabaseReference BASE_DE_DATOS_REGISTRO;
 
     private ProgressDialog progressDialog;
 
-    StorageReference storageRefence;
-    String rutaAlmacenamiento = "Identificacion_Usuarios/*";
+    public StorageReference storageRefence;
+    public String rutaAlmacenamiento = "Identificacion_Usuarios/*";
 
     private static final int CODIGO_DE_SOLICITUD_DE_CAMARA = 100;
     private static final int CODIGO_DE_GALERIA_DE_SELECCION_DE_IMAGENES = 200;
@@ -71,7 +71,7 @@ public class PerfilUsuario extends Fragment {
     int camara;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_perfil_usuario, container, false);
@@ -97,7 +97,7 @@ public class PerfilUsuario extends Fragment {
         return view;
     }
 
-    private void iniciarConexionFirebase() {
+    public void iniciarConexionFirebase() {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         storageRefence = getInstance().getReference();
@@ -147,7 +147,7 @@ public class PerfilUsuario extends Fragment {
 
     }
 
-    private void construirFragment(View view) {
+    public void construirFragment(View view) {
         tipoIdentificacion = view.findViewById(R.id.EDIT_TIPO_ID);
         identificacion = view.findViewById(R.id.EDIT_ID);
         correo = view.findViewById(R.id.EDIT_CORREO);
@@ -161,7 +161,7 @@ public class PerfilUsuario extends Fragment {
 
     }
 
-    private void tomarFoto() {
+    public void tomarFoto() {
         permisos_de_la_camara = new String[]{
                 Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         requestPermissions(permisos_de_la_camara, CODIGO_DE_SOLICITUD_DE_CAMARA);
@@ -174,7 +174,7 @@ public class PerfilUsuario extends Fragment {
         startActivityForResult(camaraIntent,CODIGO_DE_GALERIA_DE_SELECCION_DE_IMAGENES);
     }
 
-    private void actualizarImagenBD(Uri uri, int posicion) {
+    public void actualizarImagenBD(Uri uri, int posicion) {
 
         String Ruta_de_archivo_nombre;
 
