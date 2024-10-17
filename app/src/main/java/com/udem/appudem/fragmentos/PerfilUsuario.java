@@ -43,6 +43,7 @@ import java.util.HashMap;
 public class PerfilUsuario extends Fragment {
 
 
+
     public TextView tipoIdentificacion;
     public TextView identificacion;
     public TextView correo;
@@ -56,6 +57,21 @@ public class PerfilUsuario extends Fragment {
     public FirebaseAuth auth;
     public FirebaseUser user;
     public DatabaseReference BASE_DE_DATOS_REGISTRO;
+
+    TextView tipoIdentificacion;
+    TextView identificacion;
+    TextView correo;
+    TextView nombre;
+    TextView apellido;
+    TextView password;
+    TextView fechaNacimiento;
+
+    ImageView identificacionAdelante;
+    ImageView identificacionAtras;
+    FirebaseAuth auth;
+    FirebaseUser user;
+    DatabaseReference BASE_DE_DATOS_REGISTRO;
+
 
     private ProgressDialog progressDialog;
 
