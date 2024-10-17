@@ -73,6 +73,7 @@ public class LoginCliente extends AppCompatActivity {
 
     public void registrarse(){
         intent = new Intent(LoginCliente.this, RegistroCliente.class);
+        System.out.println("Validar actividad a generar------------->" + intent);
         startActivity(intent);
         finish();
     }
@@ -80,6 +81,8 @@ public class LoginCliente extends AppCompatActivity {
     protected void logearUsuario(String id, String password) {
         progressDialog.show();
         progressDialog.setCancelable(false);
+        System.out.println("Se valida id cargado-------------> "+id);
+        System.out.println("Se valida password cargado-------------> "+password);
         firebaseAuth.signInWithEmailAndPassword(id+"@gmail.com", password)
                 .addOnCompleteListener(LoginCliente.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -89,8 +92,10 @@ public class LoginCliente extends AppCompatActivity {
                             user = firebaseAuth.getCurrentUser();
                             //user=null;
                             assert user != null : "Fail to get user";
+                            System.out.println("Validar usuario obtenido----------->" + user);
                             Toast.makeText(LoginCliente.this, "SUCCESSFULL!", Toast.LENGTH_SHORT).show();
                             intent = new Intent(LoginCliente.this, MainConsulta.class);
+                            System.out.println("Validar actividad a generar------------->" + intent);
                             startActivity(intent);
                             finish();
                         }
@@ -99,6 +104,7 @@ public class LoginCliente extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
+                        System.out.println("Se lanza error por usuario invalido--------->");
                         usuarioInvalido();
                     }
                 });
@@ -108,6 +114,7 @@ public class LoginCliente extends AppCompatActivity {
         builder = new AlertDialog.Builder(LoginCliente.this);
         builder.setCancelable(false);
         builder.setTitle("Ha ocurrido un error");
+        System.out.println("Se ingresa correctamente a metodo de error para carga de usuario fallido------------------->");
         builder.setMessage("Verifique los datos ingresados")
                 .setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                     @Override
